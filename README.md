@@ -4,12 +4,12 @@
 
 * **Nodejs > v14.0.x**
 
-Clone project and run test.
+Clone project and run example.
 
 ```
-$ git clone https://git_url_clone <project_dir>
+$ git clone https://project_url_clone
 $ cd <project_dir>
-$ npm install or yarn start
+$ npm install or yarn install
 $ npm start or yarn start
 ```
 
