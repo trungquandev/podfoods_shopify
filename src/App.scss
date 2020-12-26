@@ -1,0 +1,30 @@
+.account-markup {
+  font-size: 14px !important;
+}
+.empty-state-description {
+  margin-bottom: 10px;
+}
+.header {
+  .header-logo {
+    margin: 0 auto;
+    text-align: center;
+    img {
+      width: 30%;
+    }
+  }
+}
+.form-login {
+  max-width: 50%;
+  margin: 0 auto;
+  
+  .form-component {
+    margin: 15px 0;
+    &.button-field {
+      margin: 20px 0;
+      .Polaris-Button {
+        width: 100%;
+        border-radius: 20px;
+      }
+    }
+  }
+}
