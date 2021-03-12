@@ -13,6 +13,9 @@ export default function Home() {
           <Card title="Pod Foods Shopify Pages" sectioned>
             <List>
               <List.Item>
+                <Link to="/signup">SignUp Page</Link>
+              </List.Item>
+              <List.Item>
                 <Link to="/login">Login Page</Link>
               </List.Item>
               <List.Item>

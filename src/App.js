@@ -6,8 +6,9 @@ import {
   Route
 } from "react-router-dom";
 
-import Login from 'pages/Login/Login'
 import Home from 'pages/Home/Home'
+import Login from 'pages/Login/Login'
+import SignUp from 'pages/SignUp/SignUp'
 import AccountPage from 'pages/AccountPage/AccountPage'
 import QualifyingSteps from 'pages/QualifyingSteps/QualifyingSteps'
 
@@ -18,6 +19,9 @@ export default function App() {
         <Switch>
           <Route exact path="/">
             <Home />
+          </Route>
+          <Route path="/signup">
+            <SignUp />
           </Route>
           <Route path="/login">
             <Login />
