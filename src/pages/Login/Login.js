@@ -1,5 +1,5 @@
-import React, { useState, useCallback } from 'react';
-import { useHistory } from 'react-router-dom'
+import React, { useState, useCallback, useEffect } from 'react';
+import { useHistory, Redirect } from 'react-router-dom'
 import axios from 'axios'
 
 import 'App.scss'
@@ -13,6 +13,20 @@ import {
 
 export default function Login() {
   const history = useHistory()
+
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  // Call api check logged in
+  useEffect(() => {
+    // axios.get('/api-check-user-logged-in-or-not', submitData)
+    //   .then(res => {
+    //     // if res.data = true
+    //     setIsLoggedIn(true)
+    //   })
+    //   .catch(error => {
+    //     // Get failed
+    //     console.log(error)
+    //   })
+  }, [])
 
   const [activeModal, setActiveModal] = useState(false);
   const toggleModal = useCallback(() => setActiveModal((activeModal) => !activeModal), []);
@@ -58,6 +72,11 @@ export default function Login() {
       })
     
   }, [email, password, history])
+
+  // Neu login roi thi redirect sang account page
+  if (isLoggedIn) {
+    return <Redirect to='/account-page' />
+  }
 
   return (
     <div className="login-page">
