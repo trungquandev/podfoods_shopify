@@ -44,6 +44,7 @@ export default function Login() {
       email: email,
       password: password
     }
+    // call api
     axios.post('/test-api-post-login', submitData)
       .then(res => {
         // Login success -> do something
