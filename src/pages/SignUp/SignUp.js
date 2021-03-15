@@ -4,7 +4,7 @@ import 'App.scss'
 import {
   Page, Layout, TextField,Heading, TextStyle, Select, Button
 } from '@shopify/polaris'
-import topLogo from 'resources/images/logo.color.svg'
+import topLogo from 'resources/images/logo.color.jpg'
 
 export default function SignUp() {
   const [contactEmail, setContactEmail] = useState('shop.email')

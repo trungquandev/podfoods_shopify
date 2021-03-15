@@ -121,7 +121,7 @@ export default function AccountPage() {
             <Layout.Section>
               <Card>
                 <Card.Section title="Product status"  actions={[{content: 'Need help?'}]}>
-                  <p>
+                  <div className="product-status">
                     <Banner
                       title="Pod Foods Marketplace is reviewing your store"
                       status="info"
@@ -129,7 +129,7 @@ export default function AccountPage() {
                     >
                       <p>Make sure you know how these changes affect your store.</p>
                     </Banner>
-                  </p>
+                  </div>
                   <p>
                     <TextStyle variation="strong">199 products are available on Pod Foods</TextStyle>
                   </p>

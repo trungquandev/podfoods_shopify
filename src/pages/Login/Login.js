@@ -1,7 +1,10 @@
 import React, { useState, useCallback } from 'react';
+import { useHistory } from 'react-router-dom'
+import axios from 'axios'
+
 import 'App.scss'
-import topLogo from 'resources/images/logo.color.svg'
-import emptyStateImg from 'resources/images/empty-state.svg';
+import topLogo from 'resources/images/logo.color.jpg'
+import emptyStateImg from 'resources/images/empty-state.jpg';
 
 import {
   Page, Layout, EmptyState, Link, Modal, Stack, TextField,
@@ -9,6 +12,8 @@ import {
 } from '@shopify/polaris'
 
 export default function Login() {
+  const history = useHistory()
+
   const [activeModal, setActiveModal] = useState(false);
   const toggleModal = useCallback(() => setActiveModal((activeModal) => !activeModal), []);
 
@@ -35,10 +40,23 @@ export default function Login() {
     }
     alert(`Bạn vừa nhập email: ${email} và password: ${password}, giả lập login thành công và sẽ đóng modal này tiếp theo.`)
 
-    // Login success => setConnected = true and setActiveModal = false
-    setConnected(true)
-    setActiveModal(false)
-  }, [email, password])
+    const submitData = {
+      email: email,
+      password: password
+    }
+    axios.post('/test-api-post-login', submitData)
+      .then(res => {
+        // Login success -> do something
+        setConnected(true)
+        setActiveModal(false)
+        history.push('/account-page') // redirect
+      })
+      .catch(error => {
+        // Login failed
+        console.log(error)
+      })
+    
+  }, [email, password, history])
 
   return (
     <div className="login-page">

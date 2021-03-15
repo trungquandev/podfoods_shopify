@@ -1,6 +1,6 @@
 import React, { useState, useCallback } from 'react';
 import 'App.scss'
-import topLogo from 'resources/images/logo.color.svg'
+import topLogo from 'resources/images/logo.color.jpg'
 
 import { ProgressBar, Step } from 'react-step-progress-bar'
 import "react-step-progress-bar/styles.css";
