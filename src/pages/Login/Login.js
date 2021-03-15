@@ -26,7 +26,7 @@ export default function Login() {
     //     // Get failed
     //     console.log(error)
     //   })
-  }, [])
+  }, [isLoggedIn])
 
   const [activeModal, setActiveModal] = useState(false);
   const toggleModal = useCallback(() => setActiveModal((activeModal) => !activeModal), []);
