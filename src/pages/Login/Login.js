@@ -17,7 +17,7 @@ export default function Login() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   // Call api check logged in
   useEffect(() => {
-    // axios.get('/api-check-user-logged-in-or-not', submitData)
+    // axios.get('/api-check-user-logged-in-or-not')
     //   .then(res => {
     //     // if res.data = true
     //     setIsLoggedIn(true)
