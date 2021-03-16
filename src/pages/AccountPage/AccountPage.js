@@ -2,7 +2,7 @@ import React, { useState, useCallback } from 'react';
 import 'App.scss'
 
 import {
-  Page, Layout, Card, Banner, Heading, Modal, TextContainer, TextStyle, AccountConnection, Link, Stack
+  Page, Layout, Card, Banner, Heading, Modal, TextContainer, TextStyle, AccountConnection, Link, Stack, Badge
 } from '@shopify/polaris'
 
 export default function AccountPage() {
@@ -120,8 +120,8 @@ export default function AccountPage() {
             </Layout.Section>
             <Layout.Section>
               <Card>
-                <Card.Section title="Product status"  actions={[{content: 'Need help?'}]}>
-                  <div className="product-status">
+                <Card.Section title="Product status"  actions={[{content: 'Manage availability'}]}>
+                  <div className="product-banner-status">
                     <Banner
                       title="Pod Foods Marketplace is reviewing your store"
                       status="info"
@@ -129,10 +129,36 @@ export default function AccountPage() {
                     >
                       <p>Make sure you know how these changes affect your store.</p>
                     </Banner>
+
+                    <Banner
+                      title="Some of your product variants are missing weights"
+                      status="critical"
+                      action={{content: 'Add information', url: ''}}
+                      secondary={{content: 'Learn more', url: ''}}
+                      onDismiss={() => {}}
+                    >
+                      <p>
+                        Add weights to show accurate rates at checkout and when buying shipping
+                        labels in Shopify.
+                      </p>
+                    </Banner>
                   </div>
+
                   <p>
-                    <TextStyle variation="strong">199 products are available on Pod Foods</TextStyle>
+                    <TextStyle><strong>199</strong> products are available on Pod Foods</TextStyle>
                   </p>
+
+                  <div className="product-badge-status published">
+                    <Badge progress="complete">Published</Badge>
+                    <TextStyle variation="strong"><span className="product-quantity">199 products</span></TextStyle>
+                  </div>
+                  <div className="product-badge-status not-published">
+                    <Badge progress="incomplete">Not published</Badge>
+                    <TextStyle variation="strong"><span className="product-quantity">199 products</span></TextStyle>
+                  </div>
+                </Card.Section>
+                <Card.Section>
+                  Marketplace takes up to 3 business days to review published products.
                 </Card.Section>
               </Card>
             </Layout.Section>

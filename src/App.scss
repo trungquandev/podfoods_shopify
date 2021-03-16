@@ -143,8 +143,33 @@ p {
     .content-left {
       padding: 0 2rem 0;
     }
-    .product-status {
-      margin-bottom: 10px;
+    .product-banner-status {
+      margin-bottom: 20px;
+    }
+    .product-badge-status {
+      margin-bottom: 20px;
+      .product-quantity {
+        margin-left: 10px;
+        color: #006fbb;
+      }
+      &.published {
+        span.Polaris-Badge {
+          color: green;
+          background-color: #E3F1DF;
+          span.Polaris-Badge__Pip {
+            color: #50B83C;
+          }
+        }
+      }
+      &.not-published {
+        span.Polaris-Badge {
+          color: #bf0711;
+          background-color: #FBEAE5;
+          span.Polaris-Badge__Pip {
+            color: #BF0711;
+          }
+        }
+      }
     }
   }
 }
