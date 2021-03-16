@@ -144,9 +144,9 @@ export default function AccountPage() {
                     </Banner>
                   </div>
 
-                  <p>
+                  <div className="available-product-quantity">
                     <TextStyle><strong>199</strong> products are available on Pod Foods</TextStyle>
-                  </p>
+                  </div>
 
                   <div className="product-badge-status published">
                     <Badge progress="complete">Published</Badge>
