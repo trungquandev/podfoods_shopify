@@ -2,7 +2,7 @@ import React, { useState, useCallback } from 'react';
 import 'App.scss'
 
 import {
-  Page, Layout, TextField,Heading, TextStyle, Select, Button
+  Page, Layout, TextField, Heading, TextStyle, Select, Button, Banner, List
 } from '@shopify/polaris'
 import topLogo from 'resources/images/logo.color.jpg'
 
@@ -68,6 +68,20 @@ export default function SignUp() {
           </div>
           <Heading element="h1">Register Account</Heading>
           <TextStyle variation="subdued">Let&apos;s get you setup so you can sell your Product on Pod Foods.</TextStyle>
+        </div>
+
+        <div className="error-banner">
+          <Banner
+            title="To create account, 3 changes need to be made:"
+            onDismiss={() => {}}
+            status="critical"
+          >
+            <List type="bullet">
+              <List.Item>Yellow shirt error</List.Item>
+              <List.Item>Red shirt error</List.Item>
+              <List.Item>Green shirt error</List.Item>
+            </List>
+          </Banner>
         </div>
 
         <div className="layout">

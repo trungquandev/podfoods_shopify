@@ -4,6 +4,9 @@ p {
 
 .home-page-links {
   text-align: center;
+  .Polaris-List {
+    list-style-type: none;
+  }
 }
 
 .login-page {
@@ -206,8 +209,10 @@ p {
   }
 }
 
-.Polaris-List {
-  list-style-type: none;
+.error-banner {
+  .Polaris-List__Item {
+    margin-bottom: 0;
+  }
 }
 
 .Polaris-EmptyState__Details {
