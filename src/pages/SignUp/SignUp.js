@@ -77,7 +77,7 @@ export default function SignUp() {
             status="critical"
           >
             <List type="bullet">
-              <List.Item>Yellow shirt error</List.Item>
+              <List.Item>Company name error</List.Item>
               <List.Item>Red shirt error</List.Item>
               <List.Item>Green shirt error</List.Item>
             </List>
@@ -89,7 +89,14 @@ export default function SignUp() {
           <Layout>
             <Layout.Section oneThird>
               <div className="form-component">
-                <TextField label="Company name" type="text" value={companyName} onChange={handleCompanyNameChange} />
+                <TextField
+                  label="Company name"
+                  type="text"
+                  value={companyName}
+                  onChange={handleCompanyNameChange}
+                  // error={null}
+                  error="Company name error on the field"
+                />
               </div>
             </Layout.Section>
             <Layout.Section oneThird>
