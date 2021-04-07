@@ -24,6 +24,9 @@ export default function Home() {
               <List.Item>
                 <Link to="/account-page">Account Page</Link>
               </List.Item>
+              <List.Item>
+                <Link to="/products">Products</Link>
+              </List.Item>
             </List>
           </Card>
         </div>

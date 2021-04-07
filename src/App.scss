@@ -218,6 +218,24 @@ p {
   }
 }
 
+.product-page {
+  padding: 40px;
+  background-color: #fff;
+  .heading-welcome {
+    margin-bottom: 20px;
+    h1 {
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+  }
+  .layout {
+    padding: 40px 0;
+    &:not(:last-child) {
+      border-bottom: 1px solid #e5e5e5;
+    }
+  }
+}
+
 .error-banner {
   .Polaris-List__Item {
     margin-bottom: 0;

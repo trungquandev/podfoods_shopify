@@ -11,6 +11,7 @@ import Login from 'pages/Login/Login'
 import SignUp from 'pages/SignUp/SignUp'
 import AccountPage from 'pages/AccountPage/AccountPage'
 import QualifyingSteps from 'pages/QualifyingSteps/QualifyingSteps'
+import Products from 'pages/Products/Products'
 
 export default function App() {
   return (
@@ -31,6 +32,9 @@ export default function App() {
           </Route>
           <Route path="/account-page">
             <AccountPage />
+          </Route>
+          <Route path="/products">
+            <Products />
           </Route>
         </Switch>
       </div>
