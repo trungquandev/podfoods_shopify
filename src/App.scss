@@ -177,6 +177,14 @@ p {
       }
     }
   }
+
+  .preview-product {
+    .Polaris-Link {
+      &:hover, &:focus {
+        text-decoration: none;
+      }
+    }
+  }
 }
 
 .signup-page {

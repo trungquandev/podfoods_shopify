@@ -21,15 +21,6 @@ export default function SignUp() {
   const [conntactPhoneNumber, setConntactPhoneNumber] = useState('shop.phone')
   const handleConntactPhoneNumberChange = useCallback((value) => setConntactPhoneNumber(value), [])
 
-  const [primaryContact, setPrimaryContact] = useState('')
-  const handlePrimaryContactChange = useCallback((value) => setPrimaryContact((value === 'true')), [])
-  const [qualityControlContact, setQualityControlContact] = useState('')
-  const handleQualityControlContactChange = useCallback((value) => setQualityControlContact((value === 'true')), [])
-  const [recallContact, setRecallContact] = useState('')
-  const handleRecallContactChange = useCallback((value) => setRecallContact((value === 'true')), [])
-
-  const [emergencyContact, setEmergencyContact] = useState('')
-  const handleEmergencyContactChange = useCallback((value) => setEmergencyContact((value === 'true')), [])
   const [companyWebsite, setCompanyWebsite] = useState('')
   const handleCompanyWebsiteChange = useCallback((value) => setCompanyWebsite(value), [])
   const [companyStreetAddress, setCompanyStreetAddress] = useState('shop.address1')
@@ -41,16 +32,6 @@ export default function SignUp() {
   const handleStateProvinceChange = useCallback((value) => setStateProvince(value), [])
   const [zip, setZip] = useState('shop.zip')
   const handleZipChange= useCallback((value) => setZip(value), [])
-
-  const [correspondence, setCorrespondence] = useState('')
-  const handleCorrespondenceChange = useCallback((value) => setCorrespondence((value === 'true')), [])
-  const [jurisdiction, setJurisdiction] = useState('')
-  const handleJurisdictionChange = useCallback((value) => setJurisdiction(value), [])
-  const [depositAccountNumber, setDepositAccountNumber] = useState('')
-  const handleDepositAccountNumberChange= useCallback((value) => setDepositAccountNumber(value), [])
-
-  const [annualRevenue, setAnnualRevenue] = useState('')
-  const handleAnnualRevenueChange= useCallback((value) => setAnnualRevenue(value), [])
 
   const [password, setPassword] = useState('')
   const handlePasswordChange = useCallback((value) => setPassword(value), [])
@@ -130,36 +111,6 @@ export default function SignUp() {
 
             <Layout.Section oneThird>
               <div className="form-component">
-                <Select label="Are you the Primary Contact for Company?" options={[
-                  {label: 'No', value: false},
-                  {label: 'Yes', value: true}
-                ]} onChange={handlePrimaryContactChange} value={primaryContact} />
-              </div>
-            </Layout.Section>
-            <Layout.Section oneThird>
-              <div className="form-component">
-                <Select label="Are you the Quality Control Contact for Company?" options={[
-                  {label: 'No', value: false},
-                  {label: 'Yes', value: true}
-                ]} onChange={handleQualityControlContactChange} value={qualityControlContact} />
-              </div>
-            </Layout.Section>
-            <Layout.Section oneThird>
-              <div className="form-component">
-                <Select label="Are you the Recall Contact for Company?" options={[
-                  {label: 'No', value: false},
-                  {label: 'Yes', value: true}
-                ]} onChange={handleRecallContactChange} value={recallContact} />
-              </div>
-            </Layout.Section>
-
-            <Layout.Section oneThird>
-              <div className="form-component">
-                <TextField label="State Bottle Deposit Account Number (optional)" type="text" value={depositAccountNumber} onChange={handleDepositAccountNumberChange} placeholder="Please enter if applicable." />
-              </div>
-            </Layout.Section>
-            <Layout.Section oneThird>
-              <div className="form-component">
                 <TextField label="Web address / Company URL" type="text" value={companyWebsite} onChange={handleCompanyWebsiteChange} />
               </div>
             </Layout.Section>
@@ -176,40 +127,16 @@ export default function SignUp() {
             </Layout.Section>
             <Layout.Section oneThird>
               <div className="form-component">
-                <TextField label="State / Province" type="text" value={stateProvince} onChange={handleStateProvinceChange} />
+                <Select label="State / Province" options={[
+                  {label: 'Alabama', value: 'Alabama'},
+                  {label: 'Test 1', value: 'Test 1'},
+                  {label: 'Test 2', value: 'Test 2'},
+                ]} onChange={handleStateProvinceChange} value={stateProvince} />
               </div>
             </Layout.Section>
             <Layout.Section oneThird>
               <div className="form-component">
                 <TextField label="Zip / Postal Code" type="text" value={zip} onChange={handleZipChange} />
-              </div>
-            </Layout.Section>
-
-            <Layout.Section oneThird>
-              <div className="form-component">
-                <Select label="Is this the best address for official and time-sensitive correspondence?" options={[
-                  {label: 'No', value: false},
-                  {label: 'Yes', value: true}
-                ]} onChange={handleCorrespondenceChange} value={correspondence} />
-              </div>
-            </Layout.Section>
-            <Layout.Section oneThird>
-              <div className="form-component">
-                <Select label="Are you the Emergency Contact for Company outside of business hours?" options={[
-                  {label: 'No', value: false},
-                  {label: 'Yes', value: true}
-                ]} onChange={handleEmergencyContactChange} value={emergencyContact} />
-              </div>
-            </Layout.Section>
-            <Layout.Section oneThird>
-              <div className="form-component">
-                <TextField label="Jurisdiction of Business Incorporation or Organization" type="text" value={jurisdiction} onChange={handleJurisdictionChange} placeholder="The state where your business was legally formed" />
-              </div>
-            </Layout.Section>
-
-            <Layout.Section oneThird>
-              <div className="form-component">
-                <TextField label="Annual Revenue" type="text" value={annualRevenue} onChange={handleAnnualRevenueChange} />
               </div>
             </Layout.Section>
             <Layout.Section oneThird>

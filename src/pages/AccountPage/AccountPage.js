@@ -2,7 +2,10 @@ import React, { useState, useCallback } from 'react';
 import 'App.scss'
 
 import {
-  Page, Layout, Card, Banner, Heading, Modal, TextContainer, TextStyle, AccountConnection, Link, Stack, Badge
+  Page, Layout, Card, Banner, Heading, Modal,
+  TextContainer, TextStyle, AccountConnection,
+  Link, Stack, Badge, ResourceList, ResourceItem,
+  Thumbnail, Tooltip
 } from '@shopify/polaris'
 
 export default function AccountPage() {
@@ -161,6 +164,93 @@ export default function AccountPage() {
                   Marketplace takes up to 3 business days to review published products.
                 </Card.Section>
               </Card>
+            </Layout.Section>
+          </Layout>
+        </div>
+
+        <div className="layout">
+          <Layout>
+            <Layout.Section>
+              <TextContainer>
+                <Heading>Currently Synced Products</Heading>
+                <p>
+                  <TextStyle variation="subdued">Start importing your products into Pod Foods now!</TextStyle>
+                </p>
+              </TextContainer>
+            </Layout.Section>
+            <Layout.Section>
+              <div className="currently-synced-products">
+                <Card>
+                  <ResourceList
+                    resourceName={{singular: 'product', plural: 'products'}}
+                    items={[
+                      {
+                        id: 1,
+                        name: 'Product 01',
+                        brand: 'Brand 01',
+                        url: 'https://beta.podfoods.co/vendor_dashboard/products/2804/edit',
+                        thumnail: 'https://d1xbnuum9tac48.cloudfront.net/images/10166/small/ci-kingfisher-lager-beer-b7b0d48fa0141730.jpeg'
+                      },
+                      {
+                        id: 2,
+                        name: 'Product 02',
+                        brand: 'Brand 02',
+                        url: 'https://beta.podfoods.co/vendor_dashboard/products/2804/edit',
+                        thumnail: 'https://d1xbnuum9tac48.cloudfront.net/images/10166/small/ci-kingfisher-lager-beer-b7b0d48fa0141730.jpeg'
+                      },
+                      {
+                        id: 2,
+                        name: 'Product 02',
+                        brand: 'Brand 02',
+                        url: 'https://beta.podfoods.co/vendor_dashboard/products/2804/edit',
+                        thumnail: 'https://d1xbnuum9tac48.cloudfront.net/images/10166/small/ci-kingfisher-lager-beer-b7b0d48fa0141730.jpeg'
+                      },
+                      {
+                        id: 2,
+                        name: 'Product 02',
+                        brand: 'Brand 02',
+                        url: 'https://beta.podfoods.co/vendor_dashboard/products/2804/edit',
+                        thumnail: 'https://d1xbnuum9tac48.cloudfront.net/images/10166/small/ci-kingfisher-lager-beer-b7b0d48fa0141730.jpeg'
+                      },
+                      {
+                        id: 2,
+                        name: 'Product 02',
+                        brand: 'Brand 02',
+                        url: 'https://beta.podfoods.co/vendor_dashboard/products/2804/edit',
+                        thumnail: 'https://d1xbnuum9tac48.cloudfront.net/images/10166/small/ci-kingfisher-lager-beer-b7b0d48fa0141730.jpeg'
+                      },
+                    ]}
+                    renderItem={(item) => {
+                      const {id, url, name, brand, thumnail} = item;
+                      const media = <Thumbnail
+                        source={thumnail}
+                        alt={`${name}-${brand}`}
+                      />
+
+                      return (
+                        <ResourceItem
+                          id={id}
+                          media={media}
+                        >
+                          <h3>
+                            <TextStyle variation="strong">{name}</TextStyle>
+                            <Tooltip
+                              dismissOnMouseOut
+                              preferredPosition="above"
+                              content="View on Pod Foods"
+                            >
+                              <span className="preview-product"><Link className="preview-product" external url={url}>&nbsp;</Link></span>
+                            </Tooltip>
+                          </h3>
+                          <div>{brand}</div>
+                        </ResourceItem>
+                      );
+                    }}
+                    showHeader
+                    totalItemsCount={50}
+                  />
+                </Card>
+              </div>
             </Layout.Section>
           </Layout>
         </div>
