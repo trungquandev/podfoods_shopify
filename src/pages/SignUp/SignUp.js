@@ -82,7 +82,7 @@ export default function SignUp() {
             </Layout.Section>
             <Layout.Section oneThird>
               <div className="form-component">
-                <TextField label="EIN" type="number" value={ein} onChange={handleEinChange} />
+                <TextField label="EIN" type="text" value={ein} onChange={handleEinChange} />
               </div>
             </Layout.Section>
             <Layout.Section oneThird>
