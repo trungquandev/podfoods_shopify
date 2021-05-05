@@ -86,16 +86,14 @@ export default function Login() {
             <EmptyState
               heading="Sell your products on Pod Foods"
               image={emptyStateImg}
-              footerContent={
-                <p>
-                  <Link monochrome external url="https://podfoods.co/signup">
-                    Sign up for Pod Foods.
-                  </Link>
-                </p>
-              }
             >
               <p className="empty-state-description">
                 React shoppers while they&apos;re browsing trending posts in the Pod Foods app.
+              </p>
+              <p className="signup-podfoods-link">
+                <Link monochrome external url="https://podfoods.co/signup">
+                  Sign up for Pod Foods.
+                </Link>
               </p>
               <div className="account-markup">
                 {connected
