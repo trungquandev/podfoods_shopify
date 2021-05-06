@@ -4,7 +4,7 @@ import axios from 'axios'
 
 import 'App.scss'
 import topLogo from 'resources/images/logo.color.jpg'
-import emptyStateImg from 'resources/images/empty-state.jpg';
+import bannerConnectAccount from 'resources/images/banner-shopify-connect-account-podfoods.jpg';
 
 import {
   Page, Layout, EmptyState, Link, Modal, Stack, TextField,
@@ -85,7 +85,7 @@ export default function Login() {
           <div className="empty-state-content">
             <EmptyState
               heading="Sell your products on Pod Foods"
-              image={emptyStateImg}
+              image={bannerConnectAccount}
             >
               <p className="empty-state-description">
                 React shoppers while they&apos;re browsing trending posts in the Pod Foods app.
