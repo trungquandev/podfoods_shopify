@@ -145,6 +145,13 @@ function LoginModal({
                 <div className="header-logo">
                   <img src={topLogo} alt="" />
                 </div>
+                <div className="header-link">
+                  <p className="signup-podfoods-link">
+                    <Link monochrome external url="https://podfoods.co/signup">
+                      Create an account
+                    </Link>
+                  </p>
+                </div>
               </div>
             </Stack.Item>
             <Stack.Item fill>

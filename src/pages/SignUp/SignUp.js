@@ -1,5 +1,6 @@
-import React, { useState, useCallback } from 'react';
+import React, { useState, useCallback, useEffect, createRef } from 'react';
 import 'App.scss'
+import { cloneDeep } from 'lodash'
 
 import {
   Page, Layout, TextField, Heading, TextStyle, Select, Button, Banner, List
@@ -36,8 +37,36 @@ export default function SignUp() {
   const [password, setPassword] = useState('')
   const handlePasswordChange = useCallback((value) => setPassword(value), [])
 
+  const [listInputRefs, setListInputRefs] = React.useState({})
+  const FIELD_IDS = {
+    company_name: 'company_name',
+    ein: 'ein',
+    contact_email: 'contact_email',
+    contact_first_name: 'contact_first_name',
+    contact_last_name: 'contact_last_name',
+    contact_phone_number: 'contact_phone_number',
+    company_url: 'company_url',
+    company_street_address: 'company_street_address',
+    city: 'city',
+    state_province: 'state_province',
+    zip_portal_code: 'zip_portal_code'
+  }
+  useEffect(() => {
+    const newListInputRefs = cloneDeep(listInputRefs)
+    Object.keys(FIELD_IDS).forEach(key => newListInputRefs[`${FIELD_IDS[key]}`] = createRef())
+    setListInputRefs(newListInputRefs)
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
+
   const onFormSubmit = () => {
-    alert('Lấy các biến giá trị bên trong file SignUp.js rồi xử lý tiếp.')
+    /**
+     * Ví dụ cái error đầu tiên trong mảng errors của anh là company name, nó sẽ có key trong mảng FIELD_IDS là company_name.
+     * Thì chạy dòng dưới đây để nó scroll đến cái thằng error,
+     * lưu ý là phải xử lý đúng key theo cái mảng FIELD_IDS ở trên nhé ạ.
+     */
+    listInputRefs[`${FIELD_IDS.company_name}`].current.scrollIntoView({ behavior: 'smooth' })
+
+    // alert('Lấy các biến giá trị bên trong file SignUp.js rồi xử lý tiếp.')
   }
 
   return (
@@ -69,7 +98,7 @@ export default function SignUp() {
           <div className="heading"><Heading element="h1">Vendor Company</Heading></div>
           <Layout>
             <Layout.Section oneThird>
-              <div className="form-component">
+              <div className="form-component" ref={listInputRefs[`${FIELD_IDS.company_name}`]}>
                 <TextField
                   label="Company name"
                   type="text"
@@ -81,12 +110,12 @@ export default function SignUp() {
               </div>
             </Layout.Section>
             <Layout.Section oneThird>
-              <div className="form-component">
+              <div className="form-component" ref={listInputRefs[`${FIELD_IDS.ein}`]}>
                 <TextField label="EIN" type="text" value={ein} onChange={handleEinChange} />
               </div>
             </Layout.Section>
             <Layout.Section oneThird>
-              <div className="form-component">
+              <div className="form-component" ref={listInputRefs[`${FIELD_IDS.contact_email}`]}>
                 <TextField label="Contact email" type="email" value={contactEmail}
                   placeholder="shop.email" onChange={handleContactEmailChange}
                 />
@@ -94,39 +123,39 @@ export default function SignUp() {
             </Layout.Section>
 
             <Layout.Section oneThird>
-              <div className="form-component">
+              <div className="form-component" ref={listInputRefs[`${FIELD_IDS.contact_first_name}`]}>
                 <TextField label="Contact First Name" type="text" value={contactFirstName} onChange={handleContactFirstNameChange} />
               </div>
             </Layout.Section>
             <Layout.Section oneThird>
-              <div className="form-component">
+              <div className="form-component" ref={listInputRefs[`${FIELD_IDS.contact_last_name}`]}>
                 <TextField label="Contact Last Name" type="text" value={contactLastName} onChange={handleContactLastNameChange} />
               </div>
             </Layout.Section>
             <Layout.Section oneThird>
-              <div className="form-component">
+              <div className="form-component" ref={listInputRefs[`${FIELD_IDS.contact_phone_number}`]}>
                 <TextField label="Contact Phone Number" type="text" value={conntactPhoneNumber} onChange={handleConntactPhoneNumberChange} />
               </div>
             </Layout.Section>
 
             <Layout.Section oneThird>
-              <div className="form-component">
+              <div className="form-component" ref={listInputRefs[`${FIELD_IDS.company_url}`]}>
                 <TextField label="Web address / Company URL" type="text" value={companyWebsite} onChange={handleCompanyWebsiteChange} />
               </div>
             </Layout.Section>
             <Layout.Section oneThird>
-              <div className="form-component">
+              <div className="form-component" ref={listInputRefs[`${FIELD_IDS.company_street_address}`]}>
                 <TextField label="Company Street Address" type="text" value={companyStreetAddress} onChange={handleCompanyStreetAddressChange} />
               </div>
             </Layout.Section>
 
             <Layout.Section oneThird>
-              <div className="form-component">
+              <div className="form-component" ref={listInputRefs[`${FIELD_IDS.city}`]}>
                 <TextField label="City" type="text" value={city} onChange={handleCityChange} />
               </div>
             </Layout.Section>
             <Layout.Section oneThird>
-              <div className="form-component">
+              <div className="form-component" ref={listInputRefs[`${FIELD_IDS.state_province}`]}>
                 <Select label="State / Province" options={[
                   {label: 'Alabama', value: 'Alabama'},
                   {label: 'Test 1', value: 'Test 1'},
@@ -135,7 +164,7 @@ export default function SignUp() {
               </div>
             </Layout.Section>
             <Layout.Section oneThird>
-              <div className="form-component">
+              <div className="form-component" ref={listInputRefs[`${FIELD_IDS.zip_portal_code}`]}>
                 <TextField label="Zip / Postal Code" type="text" value={zip} onChange={handleZipChange} />
               </div>
             </Layout.Section>

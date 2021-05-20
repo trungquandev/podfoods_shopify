@@ -45,6 +45,18 @@ p {
         width: 30%;
       }
     }
+    .header-link {
+      text-align: center;
+      p.signup-podfoods-link {
+        margin: 8px 0 0 4px;
+        a {
+          font-weight: bold;
+          &:hover {
+            color: #006fbb;
+          }
+        }
+      }
+    }
   }
   .form-login {
     max-width: 50%;
@@ -60,6 +72,11 @@ p {
       }
       &.help-text {
         text-align: center;
+        a {
+          &:hover {
+            color: #006fbb;
+          }
+        }
       }
     }
   }
